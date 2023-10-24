@@ -81,7 +81,7 @@ color: #777777;
                 };
                 }
 	
-            //3.1 
+            
 
             var geojson = null;   
 
@@ -102,12 +102,12 @@ color: #777777;
 
             info.addTo(map);
 
-             // 3.2.1 highlight a feature when the mouse hovers on it.
+            
             
         function highlightFeature(e) {                
-        // e indicates the current event, we could call it anything                
+                       
         var layer = e.target;                
-        //the target captures the object that the event associates with                
+                
         layer.setStyle({                    
         weight: 8,                    
         opacity: 0.8,                    
@@ -116,26 +116,23 @@ color: #777777;
         fillOpacity: 0.5                
         });
                         
-        // then bring the layer to the front.                
+                    
         layer.bringToFront();                
-        // select the update class, and update the contet with the input value.                
-        // remember whenver we call feature.properties, we're looking in the attributes                
-        // for a particular layer - state name and state density, for example                
+               
         info.update(layer.feature.properties);            
     }
-
-        // 3.2.2 zoom to the highlighted feature when the mouse clicks it.            
+            
     function zoomToFeature(e) {                
           map.fitBounds(e.target.getBounds());            
     }
 
-        // 3.2.3 reset the hightlighted feature when the mouse is out of its region.            
+                 
         function resetHighlight(e) {                
         geojson.resetStyle(e.target);                
         info.update();  //this line will be called later            
         }
 
-        // 3.3 add these events to the layer object.            
+                  
         function onEachFeature(feature, layer) {                
         layer.on({                    
         mouseover: highlightFeature,                    
@@ -144,7 +141,7 @@ color: #777777;
         });            
         }
 
-        //3.4 Add the GeoJSON layer to the map
+     
         geojson = L.geoJSON.ajax("assets/data.geojson", {
         style:style,
         onEachFeature: onEachFeature
