@@ -150,9 +150,7 @@ color: #777777;
         onEachFeature: onEachFeature
         }).addTo(map);
 	
-world = L.geoJSON.ajax(assets/data.geojson), {
-    atrribution: 'Data: Our World in Data (2022), Map: Arden McKee'
-}
+	map.attributionControl.addAttribution('Birth Rate data &copy; <a href="https://ourworldindata.org/fertility-rate#births-and-the-birth-rate">Our World in Data</a> | Map made by Arden McKee');
 
 
 </script>
